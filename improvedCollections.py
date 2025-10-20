@@ -52,6 +52,16 @@ for question in questions:
 print(f"""--------Result-----------
     Congratulations!
 Your score is: {score} points""")
+score = int(score / len(questions)) * 100
+print(f"The score is: {score} %. ")
+
+for answer in answers:
+    print(answer, end=" ")
+print()
+
+for guess in guesses:
+    print(guess, end=" ")
+print()
 
 
 
