@@ -1,13 +1,20 @@
-def sum_even_numbers(n):
+word_forms = { "1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten"}
 
-    total = 0
+input = "shhoen1lhl2jl6"
 
-    for num in range(2, n+1, +2):
-        if num % 2 == 0:
-            total += num
-        else:
-            continue
+reworked_text = ""
+
+def digit_lookup(dictionary, char):
+    for key, value in dictionary.items():
+        if key == char:
+            return value
+     
+
+for character in input: 
+    if character.isdigit():
+        reworked_text += (digit_lookup(word_forms, character))
         
-    return total
+    else:
+        reworked_text += character
 
-print(sum_even_numbers(int(input("Please enter a number until all even numbers should be summed: "))))
+print(reworked_text)
