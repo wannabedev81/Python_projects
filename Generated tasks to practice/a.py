@@ -1,20 +1,18 @@
-word_forms = { "1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten"}
+input = "aaadddddffggggghhj"
 
-input = "shhoen1lhl2jl6"
+compressed = ""
 
-reworked_text = ""
+counter = 1
 
-def digit_lookup(dictionary, char):
-    for key, value in dictionary.items():
-        if key == char:
-            return value
-     
-
-for character in input: 
-    if character.isdigit():
-        reworked_text += (digit_lookup(word_forms, character))
-        
+for i in range(1, len(input)):
+    if input[i] == input[i-1]:
+        counter += 1
+    
     else:
-        reworked_text += character
+        compressed += input[i-1] + str(counter)
+        counter = 1
+        
+compressed += input[-1] + str(counter)
 
-print(reworked_text)
+print(compressed)
+    
