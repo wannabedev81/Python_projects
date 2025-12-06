@@ -1,18 +1,18 @@
-input = "aaadddddffggggghhj"
 
-compressed = ""
+def input_sanitizer(text, name):
 
-counter = 1
+    unwanted_characters = "&@$ß!%+§"
 
-for i in range(1, len(input)):
-    if input[i] == input[i-1]:
-        counter += 1
+    if not text.strip():
+        print("The text must contain at least 1 character.")
     
-    else:
-        compressed += input[i-1] + str(counter)
-        counter = 1
-        
-compressed += input[-1] + str(counter)
-
-print(compressed)
+    for char in name:
+        if char.isdigit():
+            print("Names cannot contain numbers. ")
     
+    for char in text + name:
+        if char in unwanted_characters:
+            print("Given text or name cannot contain any special characters. ")
+       
+
+input_sanitizer(" ", "Ad4am@")
